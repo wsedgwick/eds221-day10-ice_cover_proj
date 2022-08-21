@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ice_pack</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Untitled_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Untitled_files/libs/quarto-html/quarto.js"></script>
+<script src="Untitled_files/libs/quarto-html/popper.min.js"></script>
+<script src="Untitled_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Untitled_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Untitled_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Untitled_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Untitled_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Untitled_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Untitled_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ice_pack</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.0     ✔ dplyr   1.0.8
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   1.3.1     ✔ forcats 0.5.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.0.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.0.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ice_duration_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"ntl33_v7.csv"</span>), <span class="at">na =</span> <span class="st">"-999"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Parsed with column specification:
+cols(
+  lakeid = col_character(),
+  season = col_character(),
+  iceon = col_double(),
+  ice_on = col_character(),
+  iceoff = col_double(),
+  ice_off = col_character(),
+  ice_duration = col_double(),
+  year4 = col_double()
+)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>meteorological_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"ntl20_v6.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Parsed with column specification:
+cols(
+  sampledate = col_date(format = ""),
+  year4 = col_double(),
+  month = col_double(),
+  daynum = col_double(),
+  max_air_temp_adjusted = col_double(),
+  max_air_temp_raw = col_double(),
+  min_air_temp_adjusted = col_double(),
+  min_air_temp_raw = col_double(),
+  ave_air_temp_adjusted = col_double(),
+  ave_air_temp_raw = col_double(),
+  range_air_temp_adjusted = col_double(),
+  precip_raw_mm = col_double(),
+  snow_raw_cm = col_logical(),
+  snow_depth_cm = col_logical(),
+  data_status = col_logical()
+)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 58870 parsing failures.
+ row         col           expected actual                                                                                                file
+4645 snow_raw_cm 1/0/T/F/TRUE/FALSE   0.25 '/Users/wsedgwick/Desktop/bren_meds/courses/summer/eds221/eds221-day10-ice_cover_proj/ntl20_v6.csv'
+4646 snow_raw_cm 1/0/T/F/TRUE/FALSE   1.27 '/Users/wsedgwick/Desktop/bren_meds/courses/summer/eds221/eds221-day10-ice_cover_proj/ntl20_v6.csv'
+4653 snow_raw_cm 1/0/T/F/TRUE/FALSE   1.78 '/Users/wsedgwick/Desktop/bren_meds/courses/summer/eds221/eds221-day10-ice_cover_proj/ntl20_v6.csv'
+4657 snow_raw_cm 1/0/T/F/TRUE/FALSE   12.7 '/Users/wsedgwick/Desktop/bren_meds/courses/summer/eds221/eds221-day10-ice_cover_proj/ntl20_v6.csv'
+4659 snow_raw_cm 1/0/T/F/TRUE/FALSE   0.51 '/Users/wsedgwick/Desktop/bren_meds/courses/summer/eds221/eds221-day10-ice_cover_proj/ntl20_v6.csv'
+.... ........... .................. ...... ...................................................................................................
+See problems(...) for more details.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ice_duration_data[ice_duration_data <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ice_duration_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 8
+  lakeid season      iceon ice_on        iceoff ice_off     ice_duration year4
+  &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;
+1 ME     1852-1853      NA ""            185395 "1853-4-5"            NA  1852
+2 ME     1853-1854 1853361 "1853-12-27"      NA ""                    NA  1853
+3 ME     1855-1856 1855352 "1855-12-18" 1856105 "1856-4-14"          118  1855
+4 ME     1856-1857 1856341 "1856-12-6"  1857126 "1857-5-6"           151  1856
+5 ME     1857-1858 1857329 "1857-11-25"  185885 "1858-3-26"          121  1857
+6 ME     1858-1859 1858342 "1858-12-8"   185973 "1859-3-14"           96  1858</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meteorological_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 15
+  sampledate year4 month daynum max_ai…¹ max_a…² min_a…³ min_a…⁴ ave_a…⁵ ave_a…⁶
+  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 1870-06-05  1870     6    156     23.9    23.9    16.1    16.1    20      20  
+2 1870-06-06  1870     6    157     21.7    21.7    15      15      18.3    18.3
+3 1870-06-07  1870     6    158     21.1    21.1    13.9    13.9    17.5    17.5
+4 1870-06-09  1870     6    160     15      15      11.7    11.7    13.3    13.3
+5 1870-06-10  1870     6    161     16.7    16.7    11.1    11.1    13.9    13.9
+6 1870-06-11  1870     6    162     18.3    18.3    11.7    11.7    15      15  
+# … with 5 more variables: range_air_temp_adjusted &lt;dbl&gt;, precip_raw_mm &lt;dbl&gt;,
+#   snow_raw_cm &lt;lgl&gt;, snow_depth_cm &lt;lgl&gt;, data_status &lt;lgl&gt;, and abbreviated
+#   variable names ¹​max_air_temp_adjusted, ²​max_air_temp_raw,
+#   ³​min_air_temp_adjusted, ⁴​min_air_temp_raw, ⁵​ave_air_temp_adjusted,
+#   ⁶​ave_air_temp_raw
+# ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+<p>Download both datasets</p>
+<p>Explore the metadata for each to ensure you know what they contain, variables, units, etc. NOTE: How are missing values stored in the ice duration variable?</p>
+<p>Create a new version-controlled R Project</p>
+<p>In a single R Markdown (or Quarto) document:</p>
+<p>Read in both files (ice cover duration and meteorological data). Note that the ice cover data has some NA values stored as -999.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ice_duration_data, <span class="fu">aes</span>(<span class="at">x =</span> lakeid, <span class="at">y =</span> ice_duration), <span class="at">na.rm =</span> <span class="st">"-999"</span>) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">200</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">outlier.shape =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing non-finite values (stat_boxplot).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 30 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Untitled_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mean_ice_cover_madison <span class="ot">&lt;-</span> ice_duration_data <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year4) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_cover =</span> <span class="fu">mean</span>(ice_duration, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We are finding the mean of ice duration between the 2 or 3 lakes involved in the summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Find the mean ice cover duration in Madison Lake Area by year (i.e., you’ll only be grouping by the year variable here). Understanding check: what are you finding the mean of here? Why are there multiple observations for each year?)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>explore_viz <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_ice_cover_madison, <span class="fu">aes</span>(<span class="at">x =</span> year4, <span class="at">y =</span> mean_cover)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">1850</span>, <span class="dv">2020</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Ice Cover (in days)"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>explore_viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Untitled_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This graph shows that from 1850 to 2020, there has been a general decrease in mean ice cover on lakes in the Madison Lake Area. In 170 years, ice cover decreased from an average of 125 days to an average of 90 days.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>winter_mean_temp <span class="ot">&lt;-</span> meteorological_data <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year4) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_temp =</span> <span class="fu">mean</span>(ave_air_temp_adjusted, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>mean_temp_over_time <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> winter_mean_temp, <span class="fu">aes</span>(<span class="at">x =</span> year4, <span class="at">y =</span> mean_temp)) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">1850</span>, <span class="dv">2020</span>) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Temperature (F)"</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>mean_temp_over_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Untitled_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(explore_viz <span class="sc">/</span> mean_temp_over_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Untitled_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Find the mean air temperature (using the daily average air temperature - adjusted) in Madison Lake Area by year using only observations from winter months (December, January, February)</p>
+<p>Create an exploratory visualization of mean winter temperatures for the Madison Lake Area. Add a sentence or two below this exploratory graph describing the overall trend(s) you observe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>joined_df <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mean_ice_cover_madison, winter_mean_temp, <span class="at">by =</span> <span class="st">"year4"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>scatter <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> joined_df, <span class="fu">aes</span>(<span class="at">x =</span> mean_cover, <span class="at">y =</span> mean_temp)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>scatter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 17 rows containing non-finite values (stat_smooth).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 17 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Untitled_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>subset_since_70s <span class="ot">&lt;-</span> ice_duration_data <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year4 <span class="sc">&gt;</span> <span class="dv">1970</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Date =</span> <span class="st">"ice_off"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> lubridate<span class="sc">::</span><span class="fu">mdy</span>(Date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Day =</span> lubridate<span class="sc">::</span><span class="fu">yday</span>(Date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,22 @@
+---
+title: "Untitled"
+output: html_document
+date: '2022-08-21'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+
+```{r}
+df <- tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10),
+  d = rnorm(10)
+)
+```
+

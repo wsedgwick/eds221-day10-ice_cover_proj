@@ -1,0 +1,122 @@
+---
+title: "ice_pack"
+format: html
+editor: visual
+---
+
+```{r}
+
+library(tidyverse)
+library(patchwork)
+
+ice_duration_data <- read_csv(here::here("ntl33_v7.csv"), na = "-999")
+meteorological_data <- read_csv(here::here("ntl20_v6.csv"))
+
+ice_duration_data[ice_duration_data == -999] <- NA
+
+head(ice_duration_data)
+head(meteorological_data)
+
+```
+
+
+Download both datasets
+
+Explore the metadata for each to ensure you know what they contain, variables, units, etc. NOTE: How are missing values stored in the ice duration variable?
+
+Create a new version-controlled R Project
+
+In a single R Markdown (or Quarto) document:
+
+Read in both files (ice cover duration and meteorological data). Note that the ice cover data has some NA values stored as -999.
+
+```{r}
+ggplot(data = ice_duration_data, aes(x = lakeid, y = ice_duration), na.rm = "-999") +
+  geom_jitter(width = 0.15) +
+  ylim(0, 200) +
+  geom_boxplot(alpha = 0.2,
+               outlier.shape = NA)
+  
+
+
+```
+
+```{r}
+mean_ice_cover_madison <- ice_duration_data %>% 
+  group_by(year4) %>% 
+  summarise(mean_cover = mean(ice_duration, na.rm = TRUE))
+# We are finding the mean of ice duration between the 2 or 3 lakes involved in the summary
+
+```
+
+
+
+Find the mean ice cover duration in Madison Lake Area by year (i.e., you’ll only be grouping by the year variable here). Understanding check: what are you finding the mean of here? Why are there multiple observations for each year?)
+
+```{r}
+
+explore_viz <- ggplot(data = mean_ice_cover_madison, aes(x = year4, y = mean_cover)) +
+  geom_point() +
+  geom_smooth() +
+  xlim(1850, 2020) +
+  labs(y = "Average Ice Cover (in days)",
+       x = "Year")
+
+explore_viz
+```
+
+This graph shows that from 1850 to 2020, there has been a general decrease in mean ice cover on lakes in the Madison Lake Area. In 170 years, ice cover decreased from an average of 125 days to an average of 90 days.
+
+
+```{r}
+
+winter_mean_temp <- meteorological_data %>%
+  filter(month %in% c(12, 1, 2)) %>%
+  group_by(year4) %>% 
+  summarise(mean_temp = mean(ave_air_temp_adjusted, na.rm = TRUE))
+
+mean_temp_over_time <- ggplot(data = winter_mean_temp, aes(x = year4, y = mean_temp)) +
+  geom_point() +
+  geom_smooth() +
+  xlim(1850, 2020) +
+  labs(y = "Average Temperature (F)",
+       x = "Year")
+
+mean_temp_over_time
+
+(explore_viz / mean_temp_over_time)
+
+```
+
+
+Find the mean air temperature (using the daily average air temperature - adjusted) in Madison Lake Area by year using only observations from winter months (December, January, February)
+
+Create an exploratory visualization of mean winter temperatures for the Madison Lake Area. Add a sentence or two below this exploratory graph describing the overall trend(s) you observe.
+
+```{r}
+
+joined_df <- left_join(mean_ice_cover_madison, winter_mean_temp, by = "year4")
+
+scatter <- ggplot(data = joined_df, aes(x = mean_cover, y = mean_temp)) +
+  geom_point() +
+  geom_smooth()
+
+scatter
+
+```
+
+
+
+```{r}
+
+subset_since_70s <- ice_duration_data %>% 
+  filter(year4 > 1970) %>% 
+  rename(Date = "ice_off") %>% 
+  mutate(Date = lubridate::mdy(Date)) %>% 
+  mutate(Day = lubridate::yday(Date))
+
+```
+
+
+
+
